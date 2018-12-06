@@ -7,8 +7,30 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  <header>
+    <nav class="navbar navbar-fixed-top navbar-inverse ">
+      
+      <div class="container">
+        <div class='navbar-header'>
+          <a class="navbar-brand" href='#'>
+            <%= link_to image_tag("logo.png",alt:"logo"), root_url%>
+          </a>
+        </div>
+        <ul class='nav navbar-nav navbar-right'>
+          <li role='presentation'>
+            <a href='#'>Sign Up</a>
+          </li>
+          <li>
+            <a href='#'>Sign In</a>
+          </li>
+        </ul>
+      
+      </div>
+    </nav>
+  </header>
   <body>
+    <div class="container">
     <%= yield %>
+    </div>
   </body>
 </html>

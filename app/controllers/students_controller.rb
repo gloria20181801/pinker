@@ -12,6 +12,7 @@ class StudentsController < ApplicationController
     @user[:head] = @@student_head_default
     if @user.save
       flash[:success] = "Success Sign up!"
+      log_in @user
       redirect_to @user
     else
       render 'error'

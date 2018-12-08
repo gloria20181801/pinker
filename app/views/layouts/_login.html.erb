@@ -1,5 +1,4 @@
-<%= content_for :user_nav do %>
-<ul class='nav navbar-nav navbar-left'>
+            <ul class='nav navbar-nav navbar-right'>
           <li role='presentation'>
             <a class='dropdown-toggle' data-toggle='dropdown'>
               Sign up
@@ -14,8 +13,6 @@
           </li>
           <li>
             <%= link_to 'Log in', controller: 'sessions', action:'new'%>
+            
           </li>
         </ul>
-<% end %>
-<%= render template: "layouts/application" %>
-<h1><%=@user.name %></h1>

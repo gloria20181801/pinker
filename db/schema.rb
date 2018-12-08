@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20181205020106) do
     t.string "phone"
     t.string "id_card"
     t.string "email"
+    t.string "head"
     t.string "password_digest"
     t.boolean "pass"
     t.datetime "created_at", null: false

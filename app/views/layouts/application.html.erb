@@ -6,6 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
   <header>
     <nav class="navbar navbar-fixed-top navbar-inverse ">
@@ -18,10 +19,20 @@
         </div>
         <ul class='nav navbar-nav navbar-right'>
           <li role='presentation'>
-            <a href='#'>Sign Up</a>
+            <a class='dropdown-toggle' data-toggle='dropdown'>
+              Sign up
+              <span class='caret'></span>
+              </a>
+              <ul class='dropdown-menu'>
+                <li>
+                  <%= link_to 'Driver', controller: "drivers", action: "new"%>
+                 
+                <li><%= link_to 'Student', controller: "students", action: "new"%></li>
+              </ul>
           </li>
           <li>
-            <a href='#'>Sign In</a>
+            <%= link_to 'Log in', controller: 'sessions', action:'new'%>
+            
           </li>
         </ul>
       
@@ -29,8 +40,19 @@
     </nav>
   </header>
   <body>
-    <div class="container">
+    
+     
+
+<div class="container">
+  <% flash.each do |message_type, message| %>
+<div class="alert alert-<%= message_type %>"><%= message %>
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<% end %>
     <%= yield %>
+   
     </div>
   </body>
 </html>

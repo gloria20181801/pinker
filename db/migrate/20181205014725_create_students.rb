@@ -6,6 +6,7 @@ class CreateStudents < ActiveRecord::Migration[5.1]
       t.string :phone
       t.string :id_card
       t.string :email
+      t.string :head
       t.string :password_digest
       t.boolean :pass
 

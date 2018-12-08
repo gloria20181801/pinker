@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-driver = Driver.create(
+driver1 = Driver.create(
   name:'driver1', sex:0, phone:'1500505055', id_card:'drivers/id_card/driver1@example.com.png',
   license:'drivers/license/driver1@example.com.png', bond:0.0, head:'drivers/head/driver1@example.com.png',
   email:'driver@example.com',password:'123456',pass:false

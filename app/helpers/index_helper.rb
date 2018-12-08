@@ -1,5 +1,6 @@
 module IndexHelper
   
-  def search_by_time()
+  def search form, field
+    
   end
 end

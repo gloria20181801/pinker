@@ -1,8 +1,10 @@
 class IndexController < ApplicationController
   
   def index
+    
   end
   
-  def sign_up
+  def new
   end
+  
 end

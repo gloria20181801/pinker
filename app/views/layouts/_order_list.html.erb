@@ -1,0 +1,30 @@
+<table class='table table-hover'>
+  <thead>
+    <tr>
+      <th>No</th>
+      <th>Number</th>
+      <th>Current Number</th>
+      <th>Time</th>
+      <th>Destination</th>
+      <th>Operations</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.id %></td>
+        <td><%= order.number %></td>
+        <td><%= order.cur_number%></td>
+        <td><%= order.time%></td>
+        <td><%= order.destination%></td>
+        <td>
+          <div class='btn-group' role='group'>
+            <button type='button' c;ass='btn btn-sm'>ope1</button>
+            <button type='button' c;ass='btn btn-sm'>ope1</button>
+            <button type='button' c;ass='btn btn-sm'>ope1</button>
+          </div>
+        </td>
+      </tr>    
+    <% end %> 
+  </tbody>
+</table>

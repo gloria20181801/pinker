@@ -1,0 +1,20 @@
+<%= content_for :user_nav do %>
+<ul class='nav navbar-nav navbar-left'>
+          <li role='presentation'>
+              <a class='dropdown-toggle' data-toggle='dropdown'>
+              Driver
+              <span class='caret'></span>
+              </a>
+              <ul class='dropdown-menu'>
+                <li>
+                   <%= link_to 'GET', controller: 'drivers', action: 'show'%>
+                   <li><%= link_to 'Current', controller: 'drivers', action: ''%></li>
+                   <li><%= link_to 'Ordered', controller: 'drivers', action: ''%></li>
+                   <li><%= link_to 'History', controller: 'drivers', action: ''%></li>
+                <li><%= link_to 'Log out', controller: 'drivers', action: 'destroy'%></li>
+              </ul>
+           
+          </li>
+          
+        </ul>
+<% end %>

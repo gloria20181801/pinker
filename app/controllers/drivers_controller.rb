@@ -6,6 +6,7 @@ class DriversController < ApplicationController
     @user = Driver.new
   end
   def edit
+    @user = Driver.find(params[:id])
   end
   def create
    

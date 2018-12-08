@@ -3,16 +3,48 @@ class SessionsController < ApplicationController
   
   end
   def create
-    user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password])
-      # 登入用户，然后重定向到用户的资料页面
+
+    email = params[:session][:email]
+    password = params[:session][:password]
+    driver = find_driver(email,password)
+    student = find_student(email, password)
+    manager = find_manager(email, password)
+    if !driver.nil?
+      redirect_to driver
+    elsif !student.nil?
+      redirect_to student
+    elsif !manager.nil?
+      pp 'here'
+      redirect_to manager
     else
-      # 创建一个错误消息
-      flash.now[:danger] = 'Invalid email/password combination'
-      render 'new'
-    
+      flash[:danger] = 'Invalid email/password combination'
+    end
+      
   end
   
-  def destroy
+  
+  def find_driver(email, password)
+    user = Driver.find_by(email: email.downcase)
+    if user && user.authenticate(password)
+      user
+    else
+      nil
+    end
+  end
+  def find_student(email, password)
+    user = Student.find_by(email: email.downcase)
+    if user && user.authenticate(password)
+      user
+    else
+      nil
+    end
+  end
+  def find_manager(email, password)
+    user = Manager.find_by(email: email.downcase)
+    if user && user.authenticate(password)
+      user
+    else
+      nil
+    end
   end
 end

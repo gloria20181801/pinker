@@ -24,4 +24,6 @@ class StudentsController < ApplicationController
         :email,:password_confirmation
       )
   end
+  
+  
 end

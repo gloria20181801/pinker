@@ -1,0 +1,10 @@
+<%= content_for :user_nav do %>
+
+<% if current_user.class.to_s == 'Student' %>
+<%= render "layouts/student_nav" %>
+<% elsif current_user.class.to_s == 'Driver' %>
+<%= render "layouts/driver_nav" %>
+<% else %>
+<%= render "layouts/manager_nav" %>
+<%end%>
+<% end %>

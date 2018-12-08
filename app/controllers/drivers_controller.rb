@@ -17,6 +17,7 @@ class DriversController < ApplicationController
     pp "my log" ,@user
     if @user.save
       flash[:success] = "Success Sign up!"
+      log_in @user
       redirect_to @user
     else
       render 'error'

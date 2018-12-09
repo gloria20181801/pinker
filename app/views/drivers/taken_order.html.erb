@@ -21,9 +21,9 @@
     <tr>
       <th>No</th>
       <th>Number</th>
-      
       <th>Time</th>
       <th>Destination</th>
+      <th>State</th>
       <th>Operations</th>
     </tr>
   </thead>
@@ -32,12 +32,12 @@
       <tr>
         <td><%= order.id %></td>
         <td><%= order.number %></td>
-       
         <td><%= order.time%></td>
         <td><%= order.destination%></td>
+        <td> Unfinished </td>
         <td>
           <div class='btn-group' role='group'>
-            <button type="button" class="btn btn-primary" data-toggle="button"> Take</button>
+            <button type="button" class="btn btn-primary" data-toggle="button"> DELETE</button>
             
           </div>
         </td>

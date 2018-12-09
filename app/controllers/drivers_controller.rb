@@ -1,4 +1,9 @@
 class DriversController < ApplicationController
+  before_action :logged_in_user, only: [:index ,:edit, :update]
+  before_action :correct_user,   only: [:edit, :update]
+  def index
+  end
+  
   def show
     @user = Driver.find(params[:id])
   end
@@ -8,8 +13,17 @@ class DriversController < ApplicationController
   def edit
     @user = Driver.find(params[:id])
   end
+  
+  def update
+    @user = Driver.find(params[:id])
+    if @user.update_attributes(driver_params)
+      flash[:success] = "Profile updated"
+      redirect_to @user
+      else
+      render 'edit'
+    end
+  end
   def create
-   
     @user = Driver.new(driver_params)
     @user.pass = false
     @user.id_card = @@driver_id_card_default
@@ -24,6 +38,9 @@ class DriversController < ApplicationController
       render 'error'
     end
   end
+  
+
+  
     def driver_params
       params.require(:driver).permit(:name,:sex,:phone,:password,
         :email,:password_confirmation,:bond)
@@ -37,4 +54,31 @@ class DriversController < ApplicationController
         f.write(file.read)# 向dir目录写入文件
       end
   end
+  
+  def to_take_order
+  end
+  
+  def taken_order
+  end
+  
+  def finished_order
+  end
+  
+  
+  
+  
+  
+  def logged_in_user
+      unless logged_in?
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+  end
+  
+  def correct_user
+      @user = Driver.find(params[:id])
+      redirect_to(root_url) unless @user == current_user
+  end
+  
+  
 end

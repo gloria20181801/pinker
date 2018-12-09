@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   root "index#index"
   get '/signup', to: 'index#signup'
   post '/upload', to: 'driver#upload'
+  get '/show', to: 'driver#show'
+  get '/edit', to: 'driver#edit'
+  
   
   get '/login', to: "sessions#new"
   post '/login', to: 'sessions#create'

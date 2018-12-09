@@ -9,4 +9,9 @@ class Order < ApplicationRecord
       find(:all)
     end
   end
+  
+  validates :number,presence: true,length:{minimum:0}
+  validates :cur_number, presence: true, length:{minimum:0}
+  validates :destination,presence: true, length:{maximum:50}
+  
 end

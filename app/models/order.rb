@@ -1,6 +1,8 @@
 class Order < ApplicationRecord
+  has_many :student_orders
   has_many :students, :through => :student_orders
   belongs_to :driver, :optional => true
+  
   
   def self.search(datetime, destination)
     if search

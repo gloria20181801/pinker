@@ -10,10 +10,15 @@ Rails.application.routes.draw do
   get '/show', to: 'driver#show'
   get '/edit', to: 'driver#edit'
   
+  get '/to_take_order', to: 'driver#to_take_order'
+  get '/taken_order', to: 'driver#taken_order'
+  get '/finished_order', to: 'driver#finished_order'
+  
   
   get '/login', to: "sessions#new"
   post '/login', to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy' 
+  get '/logout', to: 'index#index'
+ 
   get '/order' , to: 'students#new_order'
   post '/order', to: 'students#create_order'
   get '/orders', to: 'index#orders'

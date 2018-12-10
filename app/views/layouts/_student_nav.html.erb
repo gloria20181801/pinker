@@ -1,8 +1,18 @@
 <%= content_for :user_nav do %>
-<ul class='nav navbar-nav navbar-left'>
-          <li role='presentation'>
-            <%= link_to 'Create', controller: 'students', action: 'new_order'%>
+<% if is_passed %>
+<ul class='nav nav-pills navbar-nav navbar-left '>
+          <li class='nav-item' role='presentation'>
+            <%= link_to 'Create Orders', controller: 'students', action: 'new_order'%>
           </li>
-          
+          <li class='nav-item' role='presentation'>
+            <%= link_to 'Current Orders',"/student/#{current_user.id}/orders" %>
+          </li>
+          <li role='presentation'>
+            <%= link_to 'Accepted Orders',"/student/#{current_user.id}/accept_orders" %>
+          </li>
+          <li role='presentation'>
+            <%= link_to 'History',"/student/#{current_user.id}/history" %>
+          </li>
         </ul>
 <% end %>
+<%end%>

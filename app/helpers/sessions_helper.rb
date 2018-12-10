@@ -17,4 +17,17 @@ module SessionsHelper
     session.delete(:user_email)
     @current_user = nil
   end
+  
+  def get_user_type
+    if @current_user.class.to_s == 'Student'
+      'student'
+    elsif @current_user.class.to_s == 'Driver'
+      'driver'
+    elsif @current_user.class.to_s == 'Manager'
+     'manager'
+    else
+      nil
+    end
+    
+  end
 end

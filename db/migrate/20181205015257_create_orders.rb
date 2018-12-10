@@ -6,6 +6,7 @@ class CreateOrders < ActiveRecord::Migration[5.1]
       t.string :time
       t.string :destination
       t.integer :driver_id
+      t.boolean :finished
 
       t.timestamps
     end

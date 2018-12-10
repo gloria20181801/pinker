@@ -1,0 +1,43 @@
+<%= render 'layouts/student_nav'%>
+<%=provide(:name,'Edit Order')%>
+<div class='row'>
+  <div class='col-lg-6 col-lg-offset-3'>
+    <%= form_for(@order, url: {controller: 'students', action:'update_order'},html: {class: "form-horizontal"}) do |f|%>
+<div class='form-group'>
+    <%= f.label :number, "Number", class: 'control-label col-lg-4' %>
+    <div class='col-lg-6'>
+      <%= f.text_field :number, class:"form-control"%>
+    </div>
+  
+</div>
+<div class='form-group'>
+    <%= f.label :cur_number, "Current Number", class: 'control-label col-lg-4' %>
+    <div class='col-lg-6'>
+      <%= f.text_field :cur_number, class:"form-control", disabled: 'disabled'%>
+    </div>
+  
+</div>
+<div class='form-group'>
+    <%= f.label :time, "Time", class: 'control-label col-lg-4' %>
+    <div class='col-lg-6'>
+      <%= f.text_field :time, class:"form-control", disabled: 'disabled'%>
+    </div>
+  
+</div>
+<div class='form-group'>
+    <%= f.label :destination, "Destination", class: 'control-label col-lg-4' %>
+    <div class='col-lg-6'>
+      <%= f.text_field :destination, class:"form-control", disabled: 'disabled'%>
+    </div>
+  
+</div>
+<div class='col-lg-4 col-lg-offset-5'>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+</div>
+<%end%>
+  </div>
+</div>
+
+
+
+

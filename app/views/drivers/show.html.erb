@@ -1,3 +1,34 @@
 
 <%= render "layouts/driver_nav"%>
+<% provide(:title, @user.name) %>
 
+<div class='row'>
+    <aside class = 'col-md-4'>
+        <section class = "user_info">
+            <h1>
+                <%= @user.name %>
+            </h1>
+        </section>
+    </aside>
+</div>
+
+<body>
+    <table class="table table-condensed">
+  <caption>Personal Information</caption>
+  <tbody>
+    <tr>
+      <td>Sex:</td>
+      <td><%= @user.sex %></td>
+     </tr>
+    <tr>
+      <td>Email:</td>
+      <td><%= @user.email %></td>
+      </tr>
+    <tr>
+      <td>Phone:</td>
+      <td><%= @user.phone %></td>
+      </tr>
+  </tbody>
+</table>
+    
+</body>

@@ -6,18 +6,18 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "index#index"
   get '/signup', to: 'index#signup'
-  post '/upload', to: 'driver#upload'
-  get '/show', to: 'driver#show'
-  get '/edit', to: 'driver#edit'
+  post '/upload', to: 'drivers#upload'
+  get '/show', to: 'drivers#show'
+  get '/edit', to: 'drivers#edit'
   
-  get '/to_take_order', to: 'driver#to_take_order'
-  get '/taken_order', to: 'driver#taken_order'
-  get '/finished_order', to: 'driver#finished_order'
+  get '/to_take_order', to: 'drivers#to_take_order'
+  get '/taken_order', to: 'drivers#taken_order'
+  get '/finished_order', to: 'drivers#finished_order'
   
   
   get '/login', to: "sessions#new"
   post '/login', to: 'sessions#create'
-  get '/logout', to: 'index#index'
+  delete  '/logout', to: 'sessions#destroy'
  
   get '/order' , to: 'students#new_order'
   post '/order', to: 'students#create_order'

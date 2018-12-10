@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20181208171115) do
     t.string "time"
     t.string "destination"
     t.integer "driver_id"
+    t.boolean "finished"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -64,6 +65,8 @@ ActiveRecord::Schema.define(version: 20181208171115) do
     t.boolean "is_creator"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_student_orders_on_order_id"
+    t.index ["student_id"], name: "index_student_orders_on_student_id"
   end
 
   create_table "students", force: :cascade do |t|

@@ -13,17 +13,18 @@ class SessionsController < ApplicationController
     if !driver.nil?
       
       log_in(driver)
-      redirect_to driver
+      redirect_to root_url
     elsif !student.nil?
       log_in(student)
-      redirect_to student
+      redirect_to root_url
     elsif !manager.nil?
       log_in(manager)
-      redirect_to manager
+      redirect_to root_url
     else
       flash[:danger] = 'Invalid email/password combination'
+      redirect_to root_url
     end
-      
+    
   end
   
   def destroy

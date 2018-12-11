@@ -36,7 +36,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'rails-ujs', '~> 0.1.0'
 #gem 'jquery-ui-rails'
 gem 'will_paginate-bootstrap'
-
+gem 'nlpir'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

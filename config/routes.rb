@@ -8,10 +8,7 @@ Rails.application.routes.draw do
   get '/signup', to: 'index#signup'
 
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 80190b378bb115350fda50ea4120cfb1e418fd3a
   post '/upload', to: 'drivers#upload'
   get '/show', to: 'drivers#show'
   get '/edit', to: 'drivers#edit'

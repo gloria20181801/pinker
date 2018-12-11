@@ -1,3 +1,5 @@
+require 'nlpir'
+include Nlpir
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   @@driver_id_card_default = 'drivers/id_card/driver1@example.com.png'

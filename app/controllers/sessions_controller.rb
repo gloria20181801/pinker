@@ -1,7 +1,9 @@
 class SessionsController < ApplicationController
   def new
+  
   end
   def create
+
     email = params[:session][:email]
     password = params[:session][:password]
     driver = find_driver(email,password)

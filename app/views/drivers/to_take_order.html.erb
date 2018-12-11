@@ -1,0 +1,41 @@
+<%= render 'layouts/driver_nav'%>
+<%= render 'layouts/time'%>
+<div class='row text-center'>
+  <h1> Order To Take</h1>
+</div>
+
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid"> 
+    
+    <%= render 'layouts/search' %>
+    </div>
+</nav>
+<div class="container">
+<table class='table table-hover'>
+  <thead>
+    <tr>
+      <th>No</th>
+      <th>Number</th>
+      <th>Time</th>
+      <th>Destination</th>
+      <th>Operations</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.id %></td>
+        <td><%= order.number %></td>
+        <td><%= order.time%></td>
+        <td><%= order.destination%></td>
+        <td>
+          <div class='btn-group' role='group'>
+            <button type="button" class="btn btn-primary" data-toggle="button"> Take</button>
+            
+          </div>
+        </td>
+      </tr>    
+    <% end %> 
+  </tbody>
+</table>
+</div>

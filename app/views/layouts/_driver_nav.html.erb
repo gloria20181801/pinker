@@ -6,7 +6,7 @@
               <span class='caret'></span>
               </a>
               <ul class='dropdown-menu'>
-                  <li><%= link_to "Profile", driver_path %></li>
+                  <li><%= link_to "Profile", current_user %></li>
                   <li><%= link_to "Setting", edit_driver_path %></li>
                   <li><%= link_to "To take order", to_take_order_path %></li>
                   <li><%= link_to "Taken order",  taken_order_path %></li>

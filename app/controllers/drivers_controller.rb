@@ -1,6 +1,6 @@
 class DriversController < ApplicationController
-  before_action :logged_in_user, only: [:index ,:edit, :update]
-  before_action :correct_user,   only: [:edit, :update]
+ # before_action :logged_in_user, only: [:index ,:edit, :update]
+ # before_action :correct_user,   only: [:edit, :update]
   def index
   end
   
@@ -56,19 +56,23 @@ class DriversController < ApplicationController
   end
   
   def to_take_order
-    @user = Driver.new(driver_params)
+
     
   end
   
   def taken_order
-    @user = Driver.new(driver_params)
+    
   end
   
   def finished_order
-    @user = Driver.new(driver_params)
+    
   end
   
-  
+  def order_params
+    params.require(:order).permit(
+      :number, :time, :destination
+      )
+  end
   
   
   

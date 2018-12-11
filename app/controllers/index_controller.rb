@@ -1,4 +1,6 @@
+require 'date'
 class IndexController < ApplicationController
+  
   
   def index
     user = current_user.class.to_s
@@ -11,10 +13,22 @@ class IndexController < ApplicationController
     elsif user == 'Manager'
       @orders = Order.paginate(:page=>params[:page],:per_page=>5).all
     else
-      render 'error'
+      flash[:danger] = @orders.errors.full_messages.first
+      redirect_to root_url
     end
-   
-    @orders
+    @key = Search.new
+    @orders = search @orders
+    @controller = 'index'
+    @action = 'index'
+    
+  end
+  def search_params
+    params.require(:search).permit(
+      :time,:destination
+      )
+  end
+  def search_empty?
+    params[:search].nil? or ( params[:search][:time].empty? and params[:search][:destination].empty?)
   end
   
   def new

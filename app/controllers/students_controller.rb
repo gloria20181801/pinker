@@ -13,9 +13,10 @@ class StudentsController < ApplicationController
     if @user.save
       flash[:success] = "Success Sign up!"
       log_in @user
-      redirect_to @user
+      redirect_to root_url
     else
-      render 'error'
+      flash[:danger] = @user.errors.full_messages.first
+      redirect_to action: 'new'
     end
   end
   
@@ -28,11 +29,13 @@ class StudentsController < ApplicationController
   
   def new_order
     @order = Order.new
+    
   end
   def create_order
     @order = Order.new(order_params)
     @order.finished = false
     @order.cur_number = 1
+   
     if @order.save
       flash[:success] = "Success create order!"
       so = StudentOrder.new(student_id: current_user
@@ -42,7 +45,9 @@ class StudentsController < ApplicationController
      
       
     else
-      render 'error'
+      flash[:danger] = @order.errors.full_messages.first
+      redirect_to action: 'new_order'
+      
     end
   end
   def order_params
@@ -74,18 +79,27 @@ class StudentsController < ApplicationController
     end
   end
   def current_orders
+    @key = Search.new
+    @controller = 'students'
+    @action = 'current_orders'
     @orders = current_user.orders.where(driver_id: nil).paginate(page: params[:page],per_page: 5)
-    
+    @orders = search @orders
   end
   
   def accept_orders
+    @key = Search.new
+    @controller = 'students'
+    @action = 'accept_orders'
     @orders = current_user.orders.where(driver_id: !nil).paginate(page: params[:page],per_page: 5)
-    
+    @orders = search @orders
   end
   
   def history
+    @key = Search.new
+    @controller = 'students'
+    @action = 'history'
     @orders = current_user.orders.where(finished: true).paginate(page: params[:page],per_page: 5)
-  
+    @orders = search @orders
   end 
   
   def edit_order
@@ -137,7 +151,7 @@ class StudentsController < ApplicationController
   def driver_info
     @order = Order.find(params[:id])
     @driver = Driver.find(@order.driver_id)
-    {name: @driver.name, phone: @driver.phone, car: @driver.car.picture, head: @driver.head}
+    {name: @driver.name, phone: @driver.phone, cars: @driver.cars, head: @driver.head}
   end
     
 end

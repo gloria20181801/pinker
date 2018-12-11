@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root "index#index"
   get '/signup', to: 'index#signup'
   post '/upload', to: 'driver#upload'
-  
+
   get '/login', to: "sessions#new"
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy' 

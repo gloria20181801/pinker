@@ -19,10 +19,14 @@ module StudentsHelper
   end
   
   def can_quit order
-    !order.driver_id.nil? and !StudentOrder.find_by(student_id: current_user.id , order_id: order.id).nil?
+    order.driver_id.nil? and !StudentOrder.find_by(student_id: current_user.id , order_id: order.id).nil?
   end
   
   def is_passed
     current_user.pass
+  end
+  
+  def accepted order
+    !order.driver_id.nil?
   end
 end

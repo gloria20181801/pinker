@@ -29,13 +29,13 @@ class DriversController < ApplicationController
     @user.id_card = @@driver_id_card_default
     @user.license = @@driver_license_default
     @user.head = @@driver_head_default
-    pp "my log" ,@user
     if @user.save
       flash[:success] = "Success Sign up!"
       log_in @user
-      redirect_to @user
+      redirect_to root_url
     else
-      render 'error'
+      flash[:danger] = @user.errors.full_messages.first
+      redirect_to action: 'new'
     end
   end
   

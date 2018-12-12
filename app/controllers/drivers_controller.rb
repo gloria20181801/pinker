@@ -58,12 +58,13 @@ class DriversController < ApplicationController
   end
   
   def take_order
-    
-    @key = Search.new
-    @controller = 'drivers'
-    @action = 'take_order'
-    @orders = current_user.orders.where(driver_id: !nil).paginate(page: params[:page],per_page: 5)
-    @orders = search @orders
+
+    @order = Order.find(params[:id])
+    @order.driver_id = current_user.id
+    @order.save
+    flash[:success] = 'Success take order!'
+    redirect_to root_url
+
   end
   
   def unfinished_order

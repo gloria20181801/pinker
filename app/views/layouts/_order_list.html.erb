@@ -83,7 +83,7 @@
 <div class='btn-group' role='group'>
             <% if can_accept(order) %>
                 <%= render partial: 'layouts/modal', 
-                  locals: {order: order,button_name: 'Accept', cur_url: "/order/#{order.id}/accept", cur_method: 'patch'}%>
+                  locals: {order: order,button_name: 'Take', cur_url: "/order/#{order.id}/take", cur_method: 'patch'}%>
                 
             <%end%>
             

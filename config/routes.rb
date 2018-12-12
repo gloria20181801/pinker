@@ -18,13 +18,12 @@ Rails.application.routes.draw do
   get '/finished_order', to: 'drivers#finished_order'
   
 
-
   post '/upload', to: "driver#upload"
 
 
   get '/login', to: "sessions#new"
   post '/login', to: 'sessions#create'
-  #delete  '/logout', to: 'sessions#destroy'
+  delete  '/logout', to: 'sessions#destroy'
  
   get '/order' , to: 'students#new_order'
   post '/order', to: 'students#create_order'

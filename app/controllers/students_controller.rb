@@ -1,6 +1,8 @@
 class StudentsController < ApplicationController
   def show
     @user = Student.find(params[:id])
+    @head = @user.head
+    @id_card = @user.id_card
   end
   def new
     @user = Student.new

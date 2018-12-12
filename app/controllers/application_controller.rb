@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
   @@driver_head_default = 'drivers/head/driver1@example.com.png'
   @@student_id_card_default = 'students/id_card/s1@example.com.png'
   @@student_head_default = 'students/head/s1@example.com.png'
-  
   include SessionsHelper
   def search_params
     params.require(:search).permit(

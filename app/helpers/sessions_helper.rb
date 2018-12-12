@@ -1,7 +1,10 @@
 module SessionsHelper
+
+
   def log_in(user)
     session[:user_email] = user.email
   end
+  
   
   def current_user
     @current_user ||= Driver.find_by(email: session[:user_email])
@@ -18,6 +21,7 @@ module SessionsHelper
     @current_user = nil
   end
   
+    
   def get_user_type
     if @current_user.class.to_s == 'Student'
       'student'

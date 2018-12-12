@@ -24,6 +24,9 @@ Rails.application.routes.draw do
   get '/order/:id/driver', to: 'students#driver_info'
   patch '/order/:id/quit', to: 'students#quit_order'
   
+  
+  post '/student/upload/:id/head', to: 'student#upload_head'
+  
   resources :drivers
   resources :students
   resources :managers

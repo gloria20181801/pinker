@@ -1,6 +1,16 @@
             <ul class='nav navbar-nav navbar-right'>
           <li role='presentation'>
-            <%= link_to current_user.name, current_user %>
+            <a class='dropdown-toggle' data-toggle='dropdown'>
+              <%= current_user.name %>
+              <span class='caret'></span>
+              </a>
+              <ul class='dropdown-menu'>
+                <li>
+                  <%= link_to 'Information', current_user%>
+                 
+                <li><%= link_to 'Settings', edit_student_path(current_user) %></li>
+              </ul>
+           
           </li>
           <li>
             <%= link_to 'Log out', logout_path, method:'delete'%>

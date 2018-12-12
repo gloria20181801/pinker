@@ -1,0 +1,83 @@
+<%= render 'layouts/student_nav'%>
+<%=provide(:name,'Infomation')%>
+<div class='row'>
+  <div class='col-lg-4'>
+    <div class='panel panel-primary'>
+      <div class='panel-heading'>
+        Head
+      </div>
+      <div class='panel-body'>
+        <%= link_to image_tag(@head,alt:'head') ,class:'thumbnail'%>
+        
+      </div>
+      <div class='panel-foot'>
+        <%= form_tag({:method =>"post",:controller =>"students",:action=>"update"},:multipart =>true)do %>
+          
+          <div class='a-upload'><%= file_field 'file','head'%>Upload</div>
+        <%end%>
+      </div>
+    </div>
+  
+          
+
+    <div class='panel panel-primary'>
+      <div class='panel-heading'>
+        ID Card
+      </div>
+      <div class='panel-body'>
+        <%= link_to image_tag(@id_card,alt:'id_card') ,class:'thumbnail'%>
+        
+      </div>
+      <div class='panel-foot'>
+        <%= form_tag({:method =>"post",:controller =>"students",:action=>"update"},:multipart =>true)do %>
+          
+          <div class='a-upload'><%= file_field "file","id_card"%>Upload</div>
+        <%end%>
+        </div>
+    </div>
+  </div>
+  <div class='col-lg-8'>
+    <div class='panel panel-primary'>
+      <div class='panel-heading'>
+        Base Information
+      </div>
+     
+      <div class='panel-body'>
+         <%= form_for(@user, url: {controller: 'students', action:'update'},html: {class: "form-horizontal"}) do |f|%>
+          <div class='form-group'>
+              <%= f.label :name, "Name", class: 'control-label col-lg-4' %>
+              <div class='col-lg-6'>
+                <%= f.text_field :name, class:"form-control"%>
+              </div>
+  
+          </div>
+          <div class='form-group'>
+              <%= f.label :sex, "Sex", class: 'control-label col-lg-4' %>
+              <div class='col-lg-6'>
+                <label class='radio-inline'><%= radio_button(@user.class.to_s.downcase,'sex',0)%>Male</label>
+      
+      <label class='radio-inline'><%= radio_button(@user.class.to_s.downcase,'sex',1)%>Female</label>
+              </div>
+  
+          </div>
+          <div class='form-group'>
+              <%= f.label :phone, "Phone", class: 'control-label col-lg-4' %>
+              <div class='col-lg-6'>
+                <%= f.text_field :phone, class:"form-control"%>
+              </div>
+  
+          </div>
+          
+          <div class='col-lg-4 col-lg-offset-5'>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+</div>
+          <%end%>
+        
+        
+        
+        
+        
+      </div>
+    </div>
+  </div>
+</div>

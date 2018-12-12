@@ -8,18 +8,64 @@
       </div>
       <div class='panel-body'>
         <%= link_to image_tag(@head,alt:'head') ,class:'thumbnail'%>
-        <button class='btn btn-primary'>Upload</button>
+        
       </div>
+      
     </div>
-    <div class='panel panel-default'>
+    <div class='panel panel-primary'>
       <div class='panel-heading'>
         ID Card
       </div>
       <div class='panel-body'>
         <%= link_to image_tag(@id_card,alt:'id_card') ,class:'thumbnail'%>
-        <button class='btn btn-primary'>Upload</button>
+        
+      </div>
+      
+    </div>
+  </div>
+  <div class='col-lg-8'>
+    <div class='panel panel-primary'>
+      <div class='panel-heading'>
+        Base Information
+      </div>
+     
+      <div class='panel-body'>
+        <ul class='list-group'>
+          
+          <li class='list-group-item'>
+          
+            
+            <div class='row'>
+              <div class='col-lg-2'>Name</div>
+              <div class='col-lg-10'><%= @user.name %></div>
+            </div>
+          </li>
+           <li class='list-group-item'>
+            <div class='row'>
+              <div class='col-lg-2'>Sex</div>
+              <div class='col-lg-10'><%= sex_present @user.sex  %></div>
+            </div>
+          </li>
+          <li class='list-group-item'>
+            <div class='row'>
+              <div class='col-lg-2'>Email</div>
+              <div class='col-lg-10'><%= @user.email  %></div>
+            </div>
+          </li>
+          <li class='list-group-item'>
+            <div class='row'>
+              <div class='col-lg-2'>Phone</div>
+              <div class='col-lg-10'><%=  @user.phone  %></div>
+            </div>
+          </li>
+          <li class='list-group-item'>
+            <div class='row'>
+              <div class='col-lg-2'>Status</div>
+              <div class='col-lg-10'><%= pass_present @user.pass  %></div>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
-  <div class='rol-lg-8'></div>
 </div>

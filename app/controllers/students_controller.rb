@@ -28,7 +28,45 @@ class StudentsController < ApplicationController
         :email,:password_confirmation
       )
   end
+  def edit
+    @user  = Student.find(current_user.id)
+    @head  = @user.head
+    @id_card = @user.id_card
+  end
+  def update
+    uploadHead(params[:file][:head])
+    uploadIdCard(params[:file][:id_card])
+    @user = Student.find(params[:id])
+    @user.name = params[:user][:name]
+    @user.sex = params[:user][:sex]
+    @user.phone = params[:user][:phone]
+    flash[:success] = 'Success update infomation'
+    redirect_to root_url
+  end
   
+  def uploadHead(head)
+    filename = current_user.email + '.' + head.original_filename.split('.')[-1]
+    File.open(Rails.root.join('public', 'student','head', filename), 'wb') do |file|
+      file.write head.read
+    end
+  end
+  def uploadIdCard(head)
+    filename = current_user.email + '.' + head.original_filename.split('.')[-1]
+    filepath = Rails.root.join('public', 'student','id_card', filename)
+    current_user.id_card = filepath
+    
+    File.open(filepath, 'wb') do |file|
+      file.write head.read
+    end
+  end
+  def user_params
+    params.require(:file).permit(
+      :head, :id_card
+      )
+    params.require(:user).permit(
+      :name, :sex, :phone
+      )
+  end
   def new_order
     @order = Order.new
     

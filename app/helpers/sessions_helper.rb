@@ -30,4 +30,13 @@ module SessionsHelper
     end
     
   end
+  def get_user_controller
+    s = get_user_type
+    if !s.nil?
+      s + 's'
+    else 
+      nil
+    end
+  end
+    
 end

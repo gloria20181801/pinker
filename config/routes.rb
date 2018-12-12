@@ -44,6 +44,7 @@ Rails.application.routes.draw do
   patch '/order/:id/quit', to: 'students#quit_order'
   
   
+
   resources :drivers
   resources :students
   resources :managers

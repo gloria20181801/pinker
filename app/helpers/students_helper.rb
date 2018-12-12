@@ -29,4 +29,19 @@ module StudentsHelper
   def accepted order
     !order.driver_id.nil?
   end
+  
+  def sex_present sex
+    if sex == 0
+      'Male'
+    else
+      'Female'
+    end
+  end
+  def pass_present pass
+    if pass
+      'Validated'
+    else
+      'Validating...'
+    end
+  end
 end

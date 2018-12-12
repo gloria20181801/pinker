@@ -1,7 +1,7 @@
 <%= render 'layouts/driver_nav'%>
-<%=provide(:name,'To Take Orders')%>
-<%= render 'layouts/time'%>
+<%=provide(:name,'History Orders')%>
 
+<%= render 'layouts/time'%>
 <div class='row'>
   <%= form_for(@key ,url:{controller: "#{@controller}",action: "#{@action}"}, method:'get',html: {class: "form-inline"} ) do |f|%>
     <div class='row'>
@@ -29,8 +29,8 @@
       <%= f.submit "Search", class: "btn btn-primary" %>
     </div>
   <%end%>
-
-<div class="container">
+  
+</div>
 <table class='table table-hover'>
   <thead>
     <tr>
@@ -38,7 +38,7 @@
       <th>Number</th>
       <th>Time</th>
       <th>Destination</th>
-      <th>Operations</th>
+      <th>State</th>
     </tr>
   </thead>
   <tbody>
@@ -48,14 +48,8 @@
         <td><%= order.number %></td>
         <td><%= order.time%></td>
         <td><%= order.destination%></td>
-        <td>
-          <div class='btn-group' role='group'>
-            <button type="button" class="btn btn-primary" data-toggle="button"> Take</button>
-            
-          </div>
-        </td>
+        <td> Finished </td>
       </tr>    
     <% end %> 
   </tbody>
 </table>
-</div>

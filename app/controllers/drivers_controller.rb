@@ -57,27 +57,28 @@ class DriversController < ApplicationController
       end
   end
   
-  def to_take_order
+  def take_order
+    
     @key = Search.new
     @controller = 'drivers'
-    @action = 'taken_order'
+    @action = 'take_order'
     @orders = current_user.orders.where(driver_id: !nil).paginate(page: params[:page],per_page: 5)
     @orders = search @orders
   end
   
-  def taken_order
+  def unfinished_order
     @key = Search.new
     @controller = 'drivers'
-    @action = 'taken_order'
-    @orders = current_user.orders.where(driver_id: !nil).paginate(page: params[:page],per_page: 5)
+    @action = 'unfinished_order'
+    @orders = current_user.orders.where(finished: false).paginate(page: params[:page],per_page: 5)
     @orders = search @orders
     
   end
   
-  def finished_order
+  def history_order
     @key = Search.new
     @controller = 'drivers'
-    @action = 'finished_order'
+    @action = 'history_order'
     @orders = current_user.orders.where(finished: true).paginate(page: params[:page],per_page: 5)
     @orders = search @orders
     
@@ -87,9 +88,6 @@ class DriversController < ApplicationController
     params.require(:order).permit(
       :number, :time, :destination
       )
-  end
-  
-  def take_order
   end
   
   

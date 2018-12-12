@@ -41,13 +41,15 @@ class DriversController < ApplicationController
   
 
   
-    def driver_params
-      params.require(:driver).permit(:name,:sex,:phone,:password,
-        :email,:password_confirmation,:bond)
-    end
+  def driver_params
+    params.require(:driver).permit(:name,:sex,:phone,:password,
+      :email,:password_confirmation,:bond)
+  end
+    
   def upload
     uploadFile(params[:file][:filedata])
   end
+  
   def uploadFile(file)
     @filename = 'a.png'
     File.open("#{Rails.root}/assets/images/#{@filename}", "wb") do |f|

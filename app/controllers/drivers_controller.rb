@@ -57,19 +57,19 @@ class DriversController < ApplicationController
       end
   end
   
-  def to_take_order
-    @key = Search.new
-    @controller = 'drivers'
-    @action = 'taken_order'
-    @orders = current_user.orders.where(driver_id: !nil).paginate(page: params[:page],per_page: 5)
-    @orders = search @orders
+  def take_order
+    @order = Order.find(params[:id])
+    @order.driver_id = current_user.id
+    @order.save
+    flash[:success] = 'Success take order!'
+    redirect_to root_url
   end
   
   def taken_order
     @key = Search.new
     @controller = 'drivers'
     @action = 'taken_order'
-    @orders = current_user.orders.where(driver_id: !nil).paginate(page: params[:page],per_page: 5)
+    @orders = current_user.orders.where(finished: false).paginate(page: params[:page],per_page: 5)
     @orders = search @orders
     
   end
@@ -89,8 +89,7 @@ class DriversController < ApplicationController
       )
   end
   
-  def take_order
-  end
+  
   
   
   def logged_in_user

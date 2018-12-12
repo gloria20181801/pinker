@@ -43,7 +43,11 @@ Rails.application.routes.draw do
   get '/order/:id/driver', to: 'students#driver_info'
   patch '/order/:id/quit', to: 'students#quit_order'
   
+  patch '/order/:id/take', to: 'drivers#take_order'
   
+  get '/managers/driver_info'
+  get '/managers/students_info'
+  get '/managers/orders_info'
 
   resources :drivers
   resources :students
